@@ -7,10 +7,10 @@ class Category(models.Model):
 class Product(models.Model):
     label = models.CharField(max_length=200)
     creation_date = models.DateTimeField('date published')
-    category =models.ForeignKey(
+    category = models.ForeignKey(
         Category,
-        models.SET_NULL,
+        on_delete = models.SET_NULL,
         blank=True,
         null=True, )
-    price = models.DecimalField(..., max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
     details = models.CharField(max_length=1500)
